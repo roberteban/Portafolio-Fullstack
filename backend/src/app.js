@@ -2,8 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const mongoose = require('mongoose'); // ✅ Agregar este import
+const mongoose = require('mongoose');
 require('dotenv').config();
+
 console.log('MongoDB URI:', process.env.MONGODB_URI); // Para debug
 
 // Importar conexión a la base de datos y rutas
@@ -13,6 +14,9 @@ const contactRoutes = require('./routes/contact');
 
 // Inicializar app
 const app = express();
+
+// Habilitar trust proxy para Render u otros entornos con proxy
+app.set('trust proxy', 1);
 
 // Conectar a MongoDB Atlas
 connectDB();
