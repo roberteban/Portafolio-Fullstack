@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-api-domain.com/api'
+  apiUrl: 'https://portafolio-fullstack-1yma.onrender.com/api'
 };
