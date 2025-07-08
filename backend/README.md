@@ -1,88 +1,90 @@
+# Portafolio Fullstack - Backend
 
-# Backend del Portafolio Fullstack
+Este repositorio contiene el backend del portafolio personal desarrollado con Node.js, Express y MongoDB. Proporciona una API RESTful para gestionar el contenido del portafolio, incluyendo proyectos, contacto y consumo de la API de GitHub.
 
-Este backend fue desarrollado con Node.js y Express.js como parte de un portafolio personal. Su objetivo es gestionar la comunicación entre el frontend y servicios externos como GitHub y un servidor SMTP, permitiendo tanto la visualización de proyectos como el envío de mensajes desde un formulario de contacto.
+## 🚀 Tecnologías utilizadas
 
----
+- Node.js
+- Express.js
+- Mongoose
+- Nodemailer
+- Axios
+- dotenv
+- MongoDB Atlas
 
-## Tecnologías utilizadas
-
-- **Node.js** con **Express.js** para la creación de la API REST.
-- **Mongoose** para la conexión con MongoDB Atlas.
-- **Nodemailer** para el envío de correos electrónicos.
-- **Axios** para consumo de la API de GitHub.
-- **dotenv** para gestión de variables de entorno.
-
----
-
-## Estructura del proyecto
+## 📁 Estructura
 
 ```
-backend/src/
-├── config/           # Conexión a MongoDB
-├── controllers/      # Lógica para cada ruta
-├── models/           # Esquemas de datos con Mongoose
-├── routes/           # Definición de endpoints
-├── services/         # Servicios externos (GitHub, Email)
-└── app.js            # Punto de entrada principal
+backend/
+├── src/
+│   ├── config/             # Configuración de base de datos
+│   ├── controllers/        # Lógica de controladores (GitHub, contacto)
+│   ├── models/             # Esquemas de MongoDB (Contact, Repository)
+│   ├── routes/             # Endpoints de API
+│   ├── services/           # Integraciones externas (GitHub API, Email)
+│   └── app.js              # Punto de entrada del backend
+├── .env.example            # Variables de entorno necesarias
+├── package.json            # Dependencias y scripts
+└── test-connection.js      # Script auxiliar para verificar conexión
 ```
 
----
+## ⚙️ Configuración del entorno
 
-## Endpoints principales
+1. Clona el repositorio y accede a la carpeta del backend:
 
-### `GET /api/repositories`
-Consulta los repositorios públicos del usuario de GitHub configurado, los guarda en MongoDB y los devuelve en formato JSON.
-
-### `POST /api/contact`
-Recibe un mensaje desde el formulario de contacto del frontend. El mensaje es almacenado y enviado por correo.
-
-```json
-{
-  "name": "Nombre del remitente",
-  "email": "correo@example.com",
-  "subject": "Asunto del mensaje",
-  "message": "Contenido del mensaje"
-}
+```bash
+git clone https://github.com/roberteban/Portafolio-Fullstack.git
+cd Portafolio-Fullstack/backend
 ```
 
----
+2. Copia el archivo `.env.example` y agrega tus credenciales reales:
 
-## Variables de entorno
+```bash
+cp .env.example .env
+```
 
-El archivo `.env` debe contener las siguientes variables (ver `.env.example`):
+3. Instala las dependencias:
 
-```env
-GITHUB_USERNAME=...
-GITHUB_TOKEN=...
-MONGODB_URI=...
-EMAIL_USER=...
-EMAIL_PASS=...
+```bash
+npm install
+```
+
+4. Ejecuta el servidor:
+
+```bash
+npm start
+```
+
+El servidor quedará disponible en `http://localhost:3000`.
+
+## 🔐 Variables de entorno requeridas
+
+```
+MONGODB_URI=<tu_conexion_mongodb>
+GITHUB_USERNAME=<tu_usuario_github>
+GITHUB_TOKEN=<tu_token_personal>
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
+EMAIL_USER=<tu_correo_salida>
+EMAIL_PASS=<tu_contraseña_app>
 PORT=3000
 NODE_ENV=development
 ```
 
----
+## 🧪 Prueba de conexión
 
-## Instalación y ejecución
+Puedes ejecutar el script `test-connection.js` para verificar la conexión a MongoDB antes de iniciar el servidor.
 
 ```bash
-cd backend
-cp .env.example .env
-npm install
-npm start
+node test-connection.js
 ```
 
-> Para desarrollo con recarga automática: `npm run dev`
+## 📦 Scripts disponibles
 
-La API estará disponible en `http://localhost:3000`
+- `npm start` → Ejecuta el servidor
+- `npm run dev` → Usa `nodemon` para desarrollo (si está instalado)
 
----
-
-## Autor
+## ✉️ Contacto
 
 Roberto Castillo Riquelme  
-rcastillor@utem.cl  
-Escuela de Informática - UTEM
+robertocastillocontact@gmail.com
