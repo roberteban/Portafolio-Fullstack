@@ -35,9 +35,7 @@ app.use(helmet());
 
 // CORS: permite acceso desde frontend local o dominio en producción
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? 'https://tu-dominio.com' // 🔁 CAMBIA por tu dominio real al desplegar
-    : 'http://localhost:4200'
+  origin: ['http://localhost:4200']
 }));
 
 // Limita número de peticiones para evitar abuso
