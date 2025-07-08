@@ -55,7 +55,7 @@ cd Portafolio-Fullstack
 cd backend
 cp .env.example .env
 npm install
-npm run dev
+npm start
 ```
 
 ### Configurar el frontend
