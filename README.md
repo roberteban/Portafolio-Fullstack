@@ -1,84 +1,90 @@
+# Portafolio Fullstack - Backend
 
-# Portafolio Fullstack - Angular & Node.js
+Este repositorio contiene el backend del portafolio personal desarrollado con Node.js, Express y MongoDB. Proporciona una API RESTful para gestionar el contenido del portafolio, incluyendo proyectos, contacto y consumo de la API de GitHub.
 
-Este proyecto corresponde a un portafolio personal desarrollado con el stack Angular en el frontend y Node.js en el backend. Su objetivo es presentar mis habilidades como desarrollador y ofrecer un canal de contacto profesional.
+## 🚀 Tecnologías utilizadas
 
-> Proyecto desarrollado como desafío técnico fullstack. Diseño basado en una plantilla de Figma adaptada a mis necesidades.
-
-## Tecnologías utilizadas
-
-**Frontend**
-- Angular 18
-- Bootstrap 5
-- SCSS
-- TypeScript
-
-**Backend**
 - Node.js
 - Express.js
 - Mongoose
-- Axios
 - Nodemailer
-
-**Otros**
-- MongoDB Atlas
-- GitHub REST API
+- Axios
 - dotenv
+- MongoDB Atlas
 
-## Estructura del Proyecto
+## 📁 Estructura
 
 ```
-app-portfolio/
-├── frontend/    # Aplicación Angular
-└── backend/     # API REST Node.js + MongoDB
+backend/
+├── src/
+│   ├── config/             # Configuración de base de datos
+│   ├── controllers/        # Lógica de controladores (GitHub, contacto)
+│   ├── models/             # Esquemas de MongoDB (Contact, Repository)
+│   ├── routes/             # Endpoints de API
+│   ├── services/           # Integraciones externas (GitHub API, Email)
+│   └── app.js              # Punto de entrada del backend
+├── .env.example            # Variables de entorno necesarias
+├── package.json            # Dependencias y scripts
+└── test-connection.js      # Script auxiliar para verificar conexión
 ```
 
-## Instrucciones de instalación (entorno local)
+## ⚙️ Configuración del entorno
 
-### Requisitos
-- Node.js 16 o superior
-- Angular CLI
-- MongoDB Atlas (se puede usar una cuenta gratuita)
-- Token de GitHub (para conexión a la API)
-- Cuenta SMTP (Gmail u otro proveedor)
-
-### Clonar el repositorio
+1. Clona el repositorio y accede a la carpeta del backend:
 
 ```bash
 git clone https://github.com/roberteban/Portafolio-Fullstack.git
-cd Portafolio-Fullstack
+cd Portafolio-Fullstack/backend
 ```
 
-### Configurar el backend
+2. Copia el archivo `.env.example` y agrega tus credenciales reales:
 
 ```bash
-cd backend
 cp .env.example .env
+```
+
+3. Instala las dependencias:
+
+```bash
 npm install
+```
+
+4. Ejecuta el servidor:
+
+```bash
 npm start
 ```
 
-### Configurar el frontend
+El servidor quedará disponible en `http://localhost:3000`.
 
-```bash
-cd ../frontend
-npm install
-ng serve
+## 🔐 Variables de entorno requeridas
+
+```
+MONGODB_URI=<tu_conexion_mongodb>
+GITHUB_USERNAME=<tu_usuario_github>
+GITHUB_TOKEN=<tu_token_personal>
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=<tu_correo_salida>
+EMAIL_PASS=<tu_contraseña_app>
+PORT=3000
+NODE_ENV=development
 ```
 
-Luego abrir en el navegador: `http://localhost:4200`
+## 🧪 Prueba de conexión
 
-## Despliegue
+Puedes ejecutar el script `test-connection.js` para verificar la conexión a MongoDB antes de iniciar el servidor.
 
-Este portafolio puede ser desplegado de manera separada (frontend y backend) en servicios como:
+```bash
+node test-connection.js
+```
 
-- Vercel / Netlify (Frontend)
-- Render / Railway (Backend)
-- También puede utilizarse una solución Dockerizada o un VPS.
+## 📦 Scripts disponibles
 
-📍 **Enlace al sitio desplegado:** _pendiente de publicación_
+- `npm start` → Ejecuta el servidor
+- `npm run dev` → Usa `nodemon` para desarrollo (si está instalado)
 
-## Autor
+## ✉️ Contacto
 
 Roberto Castillo Riquelme  
 robertocastillocontact@gmail.com
