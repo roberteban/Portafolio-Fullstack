@@ -5,24 +5,18 @@
       "src": "package.json",
       "use": "@vercel/angular",
       "config": {
-        "distDir": "dist/portfolio",
-        "server": "dist/portfolio/server/server.mjs"
+        "distDir": "dist/portfolio"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "https://portafolio-fullstack-1yma.onrender.com/api/$1",
-      "status": 200
+      "dest": "https://portafolio-fullstack-1yma.onrender.com/api/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/",
-      "status": 200
+      "dest": "/index.html"
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
   ]
 }
