@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Importar conexión a la base de datos y rutas
-const { connectDB } = require('./config/database');
+const connectDB = require('./config/database');
 const repositoryRoutes = require('./routes/repositories');
 const contactRoutes = require('./routes/contact');
 
@@ -49,7 +49,7 @@ app.use(helmet({
 const allowedOrigins = [
   'http://localhost:4200',
   'http://localhost:3000',
-  'https://tu-app.netlify.app', // Reemplaza con tu dominio real de Netlify
+  'https://velvety-kashata-99db0d.netlify.app', // Tu dominio de Netlify
   // Puedes agregar más dominios aquí
 ];
 
