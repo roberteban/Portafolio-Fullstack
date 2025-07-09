@@ -1,4 +1,27 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/angular",
+      "config": {
+        "distDir": "dist/portfolio",
+        "server": "dist/portfolio/server/server.mjs"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://portafolio-fullstack-1yma.onrender.com/api/$1",
+      "status": 200
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/",
+      "status": 200
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
