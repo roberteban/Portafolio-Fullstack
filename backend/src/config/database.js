@@ -18,18 +18,12 @@ const connectDB = async () => {
 
   try {
     const conn = await mongoose.connect(uri, {
-      // Configuraciones optimizadas para Render y MongoDB Atlas
+      // Configuraciones básicas y compatibles
       serverSelectionTimeoutMS: 10000, // 10 segundos para seleccionar servidor
       socketTimeoutMS: 45000, // 45 segundos para operaciones socket
       connectTimeoutMS: 10000, // 10 segundos para conectar
       maxPoolSize: 10, // Máximo 10 conexiones en el pool
-      minPoolSize: 2, // Mínimo 2 conexiones en el pool
-      maxIdleTimeMS: 30000, // Cerrar conexiones inactivas después de 30 segundos
-      bufferMaxEntries: 0, // Deshabilitar mongoose buffering
-      
-      // Configuraciones adicionales para estabilidad
-      heartbeatFrequencyMS: 10000, // Heartbeat cada 10 segundos
-      family: 4, // Usar IPv4, resuelve algunos problemas de DNS
+      bufferCommands: false, // Deshabilitar mongoose buffering
     });
 
     console.log(`✅ Conectado exitosamente a MongoDB Atlas: ${conn.connection.host}`);
