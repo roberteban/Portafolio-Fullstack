@@ -49,8 +49,7 @@ app.use(helmet({
 const allowedOrigins = [
   'http://localhost:4200',
   'http://localhost:3000',
-  'https://velvety-kashata-99db0d.netlify.app', // Tu dominio de Netlify
-  // Puedes agregar más dominios aquí
+  'https://velvety-kashata-99db0d.netlify.app',
 ];
 
 // En producción, también permitir cualquier subdominio de netlify.app
