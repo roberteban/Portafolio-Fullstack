@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { AboutComponent } from './shared/components/about/about.component';
 import { ServicesComponent } from './shared/components/services/services.component';
@@ -12,7 +11,6 @@ import { ContactFormComponent } from './modules/contact/components/contact-form/
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     HeaderComponent,
     AboutComponent,
     ServicesComponent,
