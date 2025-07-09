@@ -2,12 +2,11 @@
   "name": "portfolio",
   "version": "1.0.0",
   "scripts": {
-    "ng": "ng",
+    "build": "ng build && ng build --configuration production --ssr",
+    "dev": "ng serve",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr": "node dist/portfolio/server/server.mjs"
+    "serve:ssr": "node dist/portfolio/server/server.mjs",
+    "vercel-build": "npm run build"
   },
   "private": true,
   "dependencies": {
