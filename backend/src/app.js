@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Importar conexión a la base de datos y rutas
-const connectDB = require('./config/database');
+const { connectDB } = require('./config/database');
 const repositoryRoutes = require('./routes/repositories');
 const contactRoutes = require('./routes/contact');
 
