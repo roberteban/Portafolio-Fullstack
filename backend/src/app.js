@@ -5,21 +5,16 @@ const rateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Importar conexión a la base de datos y rutas
-const connectDB = require('./config/database');
+const { connectDB } = require('./config/database');
 const repositoryRoutes = require('./routes/repositories');
 const contactRoutes = require('./routes/contact');
 
-// Inicializar app
 const app = express();
 
-// Habilitar trust proxy para Render u otros entornos con proxy
 app.set('trust proxy', 1);
 
-// Conectar a MongoDB Atlas
 connectDB();
 
-// Event listeners para monitorear la conexión
 mongoose.connection.on('connected', () => {
   console.log('✅ Mongoose conectado a MongoDB');
 });
@@ -32,7 +27,6 @@ mongoose.connection.on('disconnected', () => {
   console.log('⚠️ Mongoose desconectado');
 });
 
-// Middleware de seguridad
 app.use(helmet({
   crossOriginEmbedderPolicy: false,
   contentSecurityPolicy: {
@@ -45,14 +39,12 @@ app.use(helmet({
   },
 }));
 
-// CORS: permite acceso desde frontend local, Netlify y otros dominios
 const allowedOrigins = [
   'http://localhost:4200',
   'http://localhost:3000',
   'https://velvety-kashata-99db0d.netlify.app',
 ];
 
-// En producción, también permitir cualquier subdominio de netlify.app
 if (process.env.NODE_ENV === 'production') {
   allowedOrigins.push(/\.netlify\.app$/);
 }
@@ -84,7 +76,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
-// Limita número de peticiones para evitar abuso
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
   max: process.env.NODE_ENV === 'production' ? 100 : 1000, // Más restrictivo en producción
@@ -96,11 +87,9 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-// Parsear JSON y formularios con tamaño limitado
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Middleware para logging en producción
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.path} - ${req.ip}`);
@@ -108,11 +97,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Rutas API
 app.use('/api/repositories', repositoryRoutes);
 app.use('/api/contact', contactRoutes);
 
-// Ruta de prueba de vida (salud del servidor)
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'OK', 
@@ -123,7 +110,6 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Ruta raíz para verificar que el servidor está funcionando
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Portfolio Backend API',
@@ -132,7 +118,6 @@ app.get('/', (req, res) => {
   });
 });
 
-// Middleware para manejar rutas no encontradas
 app.use('*', (req, res) => {
   res.status(404).json({ 
     error: 'Route not found',
@@ -140,7 +125,6 @@ app.use('*', (req, res) => {
   });
 });
 
-// Middleware global para manejo de errores
 app.use((err, req, res, next) => {
   console.error('Error:', err.stack);
   res.status(500).json({ 
@@ -149,7 +133,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Manejo de cierre graceful
 process.on('SIGTERM', () => {
   console.log('SIGTERM received, shutting down gracefully');
   mongoose.connection.close(() => {
@@ -166,7 +149,6 @@ process.on('SIGINT', () => {
   });
 });
 
-// Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
