@@ -1,8 +1,11 @@
-# Portafolio Backend
+# Portafolio Profesional – Roberto Castillo
 
-Este repositorio contiene el backend del portafolio personal desarrollado con Node.js, Express y MongoDB. Proporciona una API RESTful para gestionar el contenido del portafolio, incluyendo proyectos, contacto y consumo de la API de GitHub.
+Este repositorio contiene el backend del portafolio personal desarrollado con **Node.js**, **Express** y **MongoDB**. Proporciona una API RESTful para gestionar el contenido del portafolio, incluyendo proyectos, contacto y consumo de la API de GitHub.
 
-## 🚀 Tecnologías utilizadas
+**Frontend desplegado**: [portafolio-frontend-chi.vercel.app](https://portafolio-frontend-chi.vercel.app)  
+**API online (Render)**: [portafolio-fullstack-1yma.onrender.com/api](https://portafolio-fullstack-1yma.onrender.com/api)
+
+## Tecnologías utilizadas
 
 - Node.js
 - Express.js
@@ -12,7 +15,7 @@ Este repositorio contiene el backend del portafolio personal desarrollado con No
 - dotenv
 - MongoDB Atlas
 
-## 📁 Estructura
+## Estructura
 
 ```
 backend/
@@ -28,13 +31,13 @@ backend/
 └── test-connection.js      # Script auxiliar para verificar conexión
 ```
 
-## ⚙️ Configuración del entorno
+## Configuración del entorno
 
 1. Clona el repositorio y accede a la carpeta del backend:
 
 ```bash
 git clone https://github.com/roberteban/portafolio-backend.git
-cd Portafolio-Fullstack/backend
+cd portafolio-backend
 ```
 
 2. Copia el archivo `.env.example` y agrega tus credenciales reales:
@@ -57,9 +60,9 @@ npm start
 
 El servidor quedará disponible en `http://localhost:3000`.
 
-## 🔐 Variables de entorno requeridas
+## Variables de entorno requeridas
 
-```
+```env
 MONGODB_URI=<tu_conexion_mongodb>
 GITHUB_USERNAME=<tu_usuario_github>
 GITHUB_TOKEN=<tu_token_personal>
@@ -71,20 +74,25 @@ PORT=3000
 NODE_ENV=development
 ```
 
-## 🧪 Prueba de conexión
+## Prueba de conexión
 
-Puedes ejecutar el script `test-connection.js` para verificar la conexión a MongoDB antes de iniciar el servidor.
+Puedes ejecutar el script `test-connection.js` para verificar la conexión a MongoDB antes de iniciar el servidor:
 
 ```bash
 node test-connection.js
 ```
 
-## 📦 Scripts disponibles
+## Scripts disponibles
 
 - `npm start` → Ejecuta el servidor
 - `npm run dev` → Usa `nodemon` para desarrollo (si está instalado)
 
-## ✉️ Contacto
+---
 
-Roberto Castillo Riquelme  
-robertocastillocontact@gmail.com
+## Contacto
+
+[robertocastillocontact@gmail.com](mailto:robertocastillocontact@gmail.com)  
+[linkedin.com/in/roberto-castillo-riquelme](https://www.linkedin.com/in/roberto-castillo-riquelme/)
+
+© 2025 Roberto Castillo
+
