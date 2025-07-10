@@ -1,13 +1,23 @@
 {
   "version": 2,
-  "routes": [
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/portfolio",
+  "framework": "angular",
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "https://portafolio-fullstack-1yma.onrender.com/api/$1"
-    },
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
