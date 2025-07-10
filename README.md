@@ -1,4 +1,4 @@
-# Portafolio Fullstack - Backend
+# Portafolio Backend
 
 Este repositorio contiene el backend del portafolio personal desarrollado con Node.js, Express y MongoDB. Proporciona una API RESTful para gestionar el contenido del portafolio, incluyendo proyectos, contacto y consumo de la API de GitHub.
 
@@ -33,7 +33,7 @@ backend/
 1. Clona el repositorio y accede a la carpeta del backend:
 
 ```bash
-git clone https://github.com/roberteban/Portafolio-Fullstack.git
+git clone https://github.com/roberteban/portafolio-backend.git
 cd Portafolio-Fullstack/backend
 ```
 
