@@ -92,7 +92,7 @@ node test-connection.js
 ## Contacto
 
 [robertocastillocontact@gmail.com](mailto:robertocastillocontact@gmail.com)  
-[linkedin.com/in/roberto-castillo-riquelme](https://www.linkedin.com/in/roberto-castillo-riquelme/)
+[LinkedIn](https://www.linkedin.com/in/roberto-castillo-riquelme/)
 
 © 2025 Roberto Castillo
 
